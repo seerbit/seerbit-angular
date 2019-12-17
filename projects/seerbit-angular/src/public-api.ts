@@ -1,2 +1,2 @@
 
-export * from './lib/ngx-seerbit.module';
+export * from './lib/ng-seerbit.module';
