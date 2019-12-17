@@ -1,24 +1,18 @@
-# SeerbitAngular
+# The SeerBit library for Angular. 
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
+It enables easy integration for the inline script with Angular.
 
-## Code scaffolding
+## Requirements
 
-Run `ng generate component component-name --project seerbit-angular` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project seerbit-angular`.
-> Note: Don't forget to add `--project seerbit-angular` or else it will be added to the default project in your `angular.json` file. 
+* Angular 2 of higher
 
-## Build
+You can use NPM to add the library to your project
 
-Run `ng build seerbit-angular` to build the project. The build artifacts will be stored in the `dist/` directory.
+### NPM
 
-## Publishing
+```bash
+npm install --save seerbit-angular
+```
 
-After building your library with `ng build seerbit-angular`, go to the dist folder `cd dist/seerbit-angular` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test seerbit-angular` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Documentation
+* https://doc.seerbit.com/api/library

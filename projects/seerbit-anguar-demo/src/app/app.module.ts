@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {NgxSeerbitModule} from 'seerbit-angular';
+import {NgSeerBitModule} from 'seerbit-angular';
 
 import { AppComponent } from './app.component';
 
@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule,NgxSeerbitModule
+    BrowserModule,NgSeerBitModule
   ],
   providers: [],
   bootstrap: [AppComponent]

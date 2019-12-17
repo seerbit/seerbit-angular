@@ -1,8 +1,14 @@
 {
-  "name": "@seerbit/seerbit-angular",
-  "version": "1.0.0",
+  "name": "seerbit-angular",
+  "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14"
-  }
+  },
+  "author": "SeerBit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seerbit/seerbit-angular/issues"
+  },
+  "homepage": "https://github.com/seerbit/seerbit-angular#readme"
 }

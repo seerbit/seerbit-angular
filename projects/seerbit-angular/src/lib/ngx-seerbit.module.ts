@@ -9,4 +9,4 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   exports: [SeerBitButtonDirective,SeerBitComponent]
 })
-export class NgxSeerbitModule { }
+export class Bhr { }

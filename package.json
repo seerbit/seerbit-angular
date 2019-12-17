@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "seerbit-angular": "ng build seerbit-angular && cd dist/seerbit-angular && npm publish --"
+    "build:seerbit": "ng build bhr"
   },
   "repository": {
     "type": "git",
@@ -29,7 +29,6 @@
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
-
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.20",
     "@angular-devkit/build-ng-packagr": "~0.803.20",
