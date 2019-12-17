@@ -267,10 +267,10 @@ export class Product {
 		<button class="btn-go-checkout" seerbit-ng (callback)="PaymentDone($event)" (close)="PaymentCancel($event)"
     [options]="options">
 			<i class="fas fa-lock"></i>
-			<span>Go to Checkout</span>
+			<span>Pay (Button as a Directive)</span>
 		</button>
 		<seerbit-ng class="btn-go-checkout" (callback)="PaymentDone($event)" (close)="PaymentCancel($event)" [options]="options">
-			Seer Button as component
+			Pay (Button as a Component)
 		  </seerbit-ng>
 	
 	</div>
