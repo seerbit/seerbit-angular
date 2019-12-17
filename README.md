@@ -281,4 +281,4 @@ export class Product {
 ```
 
 ## Website
-* https://doc.seerbit.com
+* https://seerbit.com
