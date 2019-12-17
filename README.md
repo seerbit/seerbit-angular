@@ -279,6 +279,7 @@ export class Product {
 </div>
 ```
 
+<strong>Component Template CSS</strong>
 ```css
 * {
     margin: 0;
