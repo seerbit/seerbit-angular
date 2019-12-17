@@ -66,7 +66,7 @@ export class AppModule { }
 ```
 
 
-## Implementation in your Component
+## Implementation in your Application
 ```typescript
 import { Component } from '@angular/core';
 import {PRODUCTS} from './mock.products';
