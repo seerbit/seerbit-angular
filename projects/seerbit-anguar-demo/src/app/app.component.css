@@ -11,13 +11,6 @@
     font-weight: 400;
   }
   
-  html,
-  body,
-  button,
-  input[type="text"] {
-    font-family: "Lato", sans-serif;
-  }
-  
   .center-wrapper {
     padding: 0.5rem;
     display: flex;
@@ -71,11 +64,7 @@
     text-transform: uppercase;
   }
   
-  .fa-search,
-  .fa-arrow-left,
-  .fa-lock {
-    margin-right: 1rem;
-  }
+ 
   
   .top-bar,
   .bag-head::after,
@@ -91,8 +80,7 @@
   
   .bag-head::after,
   .bag-total::before,
-  .description-text,
-  .promo-checkbox {
+  .description-text{
     margin: 0.5rem 0;
   }
   
@@ -160,8 +148,7 @@
   .quantity-wrapper,
   .subtotal,
   .delivery,
-  .total,
-  .promo-code {
+  .total {
     display: flex;
     justify-content: space-between;
   }
@@ -177,7 +164,6 @@
     margin-bottom: 1rem;
   }
   
-
   
   input[type="text"],
   .btn-go-checkout {
@@ -197,11 +183,6 @@
     box-shadow: 0 3px 6px 2px gainsboro;
   }
   
-  .help {
-    text-align: center;
-  }
-  
-  html {
-    background: repeating-linear-gradient(-45deg, lemonchiffon, lemonchiffon 10px, #fff59a 10px, #fff59a 20px);
-  }
+
+ 
   
