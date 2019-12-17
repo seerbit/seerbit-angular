@@ -9,8 +9,8 @@ interface MyWindow extends Window {
 }
 declare var window: MyWindow;
 @Component({
-  selector: 'seer-bit',
-  template: `<button [ngClass]="class" [ngStyle]="style"><ng-content></ng-content></button>`,
+  selector: 'seerbit-ng',
+  template: `<button [ngClass]="class" [ngStyle]="style"><ng-content></ng-content></button>`
 })
 export class SeerBitComponent {
   @Input() class: string;

@@ -4,7 +4,7 @@ import { SeerBitOptions } from './models/SeerBitOptions';
 interface MyWindow extends Window {
   SeerBitPop: { setup(options: Partial<SeerBitOptions>): { openIframe(): any } };
 }
-declare var SeerbitPay;
+
 declare var window: MyWindow;
 
 @Injectable({
@@ -27,9 +27,6 @@ export class SeerbitService {
       };
       script.addEventListener('load', onLoadFunc);
       script.setAttribute('src', 'http://checkout-sbt.surge.sh/api/v1/seerbit.js');
-      setTimeout(() => {
-        SeerbitPay;
-      }, 3000);
     });
   }
   getSeerBitOptions(obj: SeerBitOptions): SeerBitOptions {

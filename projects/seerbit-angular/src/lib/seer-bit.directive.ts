@@ -11,7 +11,7 @@ interface MyWindow extends Window {
 }
 declare var window: MyWindow;
 @Directive({
-  selector: '[seer-bit]'
+  selector: '[seerbit-ng]'
 })
 export class SeerBitButtonDirective {
 
@@ -28,7 +28,7 @@ export class SeerBitButtonDirective {
   private _options: Partial<PrivateSeerBitOptions>;
   closeFn:any; callbackFn:any;
   constructor(private seerBitService: SeerbitService) {
-
+console.log(seerBitService)
   }
 
   async pay() {

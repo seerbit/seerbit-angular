@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bhr": {
+    "seerbit-angular": {
       "projectType": "library",
       "root": "projects/seerbit-angular",
       "sourceRoot": "projects/seerbit-angular/src",

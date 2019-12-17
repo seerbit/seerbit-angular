@@ -47,11 +47,15 @@
 			<h3>Total:</h3>
 			<h3>N{{cart_total_cost}}</h3>
 		</div>
-		<button class="btn-go-checkout" seer-bit (callback)="PaymentDone($event)" (close)="PaymentCancel($event)"
+		<button class="btn-go-checkout" seerbit-ng (callback)="PaymentDone($event)" (close)="PaymentCancel($event)"
     [options]="options">
 			<i class="fas fa-lock"></i>
 			<span>Go to Checkout</span>
 		</button>
+		<seerbit-ng class="btn-go-checkout" (callback)="PaymentDone($event)" (close)="PaymentCancel($event)" [options]="options">
+			Seer Button as component
+		  </seerbit-ng>
+	
 	</div>
 
 </div>
