@@ -14,10 +14,12 @@ export class AppComponent {
   available_quantities = [1,2,3]
 
   PaymentDone(response) {
+    console.log('callback')
     console.log(response) /*response of transaction*/
   }
   PaymentCancel(response) {
-    
+    console.log('cancel')
+    console.log(response)
   }
 
   cartTotalCost = ()=>{
@@ -57,7 +59,7 @@ export class AppComponent {
     "description": "TEST",
     "country": "NG",
     "amount": this.cart_total_cost,
-    "callbackurl": "localhost:4200",//Replace this with URL available on the WWW
-    "public_key": "SBPUBK_CECPLUSINMDQIHH3GYV2NNYHGPV9JEKQ", //replace this with your own public key from your Merchant Dashboard
+    "callbackurl": "",//Replace this with URL available on the WWW
+    "public_key": "SBTESTPUBK_dhrpzbRpR34l6VmqkCFOKA94L5E1jSTu", //replace this with your own public key from your Merchant Dashboard
   };
 }

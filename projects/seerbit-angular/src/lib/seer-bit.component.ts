@@ -1,10 +1,11 @@
 import { Component, OnInit, Output, Input, EventEmitter, HostListener } from '@angular/core';
 import { PrivateSeerBitOptions, SeerBitOptions } from './models/SeerBitOptions';
 import { SeerbitService } from './seerbit-service';
+
 interface MyWindow extends Window {
   SeerbitPay:
   {
-    (options: any, close: any, callback: any)
+    (options: any,callback: any, close: any)
   };
 }
 declare var window: MyWindow;
@@ -19,10 +20,13 @@ export class SeerBitComponent {
   @Output() callback: EventEmitter<any> = new EventEmitter<any>();
   @Output() close: EventEmitter<any> = new EventEmitter<any>();
   private _options: Partial<PrivateSeerBitOptions>;
-  closeFn: any; callbackFn: any;
+  closeFn: any; 
+  callbackFn: any;
+
   constructor(private seerBitService: SeerbitService) {
 
   }
+
   generateOptions(obj: any) {
     this._options = this.seerBitService.getSeerBitOptions(obj);
     this.closeFn = (...response) => {
@@ -40,7 +44,9 @@ export class SeerBitComponent {
     }
     return this.seerBitService.checkInput(obj);
   }
+
   @HostListener('click')
+
   async buttonClick() {
     this.pay();
   }
@@ -52,6 +58,6 @@ export class SeerBitComponent {
       return errorText;
     }
     await this.seerBitService.loadScript();
-    window.SeerbitPay(this._options, this.closeFn, this.callbackFn)
+    window.SeerbitPay(this._options, this.callbackFn,this.closeFn)
   }
 }
