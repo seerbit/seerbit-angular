@@ -15,29 +15,26 @@ declare var window: MyWindow;
   selector: '[seerbit-ng]'
 })
 export class SeerBitButtonDirective {
-
-  // @Input() tranref: string;
-  // @Input() currency: string;
-  // @Input() description: string;
-  // @Input() country: string;
-  // @Input() amount: string;
-  // @Input() callbackurl: string;
-  // @Input() public_key: string;
   @Input() options: any;
   @Output() callback: EventEmitter<any> = new EventEmitter<any>();
   @Output() close: EventEmitter<any> = new EventEmitter<any>();
+  @Output() validationError: EventEmitter<any> = new EventEmitter<any>();
   private _options: Partial<PrivateSeerBitOptions>;
-  closeFn:any; callbackFn:any;
+  closeFn:any; 
+  callbackFn:any;
+  errorFn:any;
   constructor(private seerBitService: SeerbitService) {
-// console.log(seerBitService)
+
   }
 
   async pay() {
     let errorText = this.validateInput(this.options);
+
     this.generateOptions(this.options);
 
     if (errorText) {
       console.error(errorText);
+      this.validationError.emit(errorText)
       return errorText;
     }
     await this.seerBitService.loadScript();
@@ -46,7 +43,7 @@ export class SeerBitButtonDirective {
   generateOptions(obj: any) {
     this._options = this.seerBitService.getSeerBitOptions(obj);
     this.closeFn = (...response) => {
-      if (!this.close.observers.length) {
+      if (this.close.observers.length) {
         this.close.emit(...response);
       }
     }

@@ -22,6 +22,11 @@ export class AppComponent {
     console.log(response)
   }
 
+  PaymentPayloadValidationError(error) {
+    console.log('payload validation error')
+    console.log(error)
+  }
+
   cartTotalCost = ()=>{
     let total = 0;
     this.cart.map(item=>{
@@ -58,6 +63,9 @@ export class AppComponent {
     "currency": "NGN",
     "description": "TEST",
     "country": "NG",
+    "email": "test@emaildomain.com",
+    "mobile_no": "08011111111", 
+    "full_name": "test test",
     "amount": this.cart_total_cost,
     "callbackurl": "",//Replace this with URL available on the WWW
     "public_key": "SBTESTPUBK_dhrpzbRpR34l6VmqkCFOKA94L5E1jSTu", //replace this with your own public key from your Merchant Dashboard

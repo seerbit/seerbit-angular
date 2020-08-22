@@ -30,7 +30,6 @@ export class SeerbitService {
     });
   }
   getSeerBitOptions(obj: SeerBitOptions): SeerBitOptions {
-    //const seerBitOptions: any = {};
     const seerBitOptions: SeerBitOptions = {
       amount: obj.amount,
       tranref: obj.tranref,
@@ -38,7 +37,10 @@ export class SeerbitService {
       currency: obj.currency || 'NGN',
       callbackurl: obj.callbackurl || '',
       country: obj.country,
-      description: obj.description
+      description: obj.description,
+      email: obj.email || '',
+      mobile_no: obj.mobile_no || '',
+      full_name: obj.full_name || ''
     };
     return seerBitOptions;
   }

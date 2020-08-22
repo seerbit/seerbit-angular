@@ -19,6 +19,7 @@ export class SeerBitComponent {
   @Input() options: any;
   @Output() callback: EventEmitter<any> = new EventEmitter<any>();
   @Output() close: EventEmitter<any> = new EventEmitter<any>();
+  @Output() validationError: EventEmitter<any> = new EventEmitter<any>();
   private _options: Partial<PrivateSeerBitOptions>;
   closeFn: any; 
   callbackFn: any;
@@ -30,7 +31,7 @@ export class SeerBitComponent {
   generateOptions(obj: any) {
     this._options = this.seerBitService.getSeerBitOptions(obj);
     this.closeFn = (...response) => {
-      if (!this.close.observers.length) {
+      if (this.close.observers.length) {
         this.close.emit(...response);
       }
     }
@@ -55,6 +56,7 @@ export class SeerBitComponent {
     this.generateOptions(this.options);
     if (errorText) {
       console.error(errorText);
+      this.validationError.emit(errorText)
       return errorText;
     }
     await this.seerBitService.loadScript();
