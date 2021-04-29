@@ -5,7 +5,7 @@ import { SeerbitService } from './seerbit-service';
 interface MyWindow extends Window {
   SeerbitPay:
   {
-    (options: any,callback: any, close: any)
+    (options: any, callback: any, close: any)
   };
 }
 declare var window: MyWindow;
@@ -21,7 +21,7 @@ export class SeerBitComponent {
   @Output() close: EventEmitter<any> = new EventEmitter<any>();
   @Output() validationError: EventEmitter<any> = new EventEmitter<any>();
   private _options: Partial<PrivateSeerBitOptions>;
-  closeFn: any; 
+  closeFn: any;
   callbackFn: any;
 
   constructor(private seerBitService: SeerbitService) {
@@ -34,14 +34,14 @@ export class SeerBitComponent {
       if (this.close.observers.length) {
         this.close.emit(...response);
       }
-    }
+    };
     this.callbackFn = (...response) => {
       this.callback.emit(...response);
     };
   }
   validateInput(obj: SeerBitOptions) {
     if (!this.callback.observers.length) {
-      return 'Seerbit: Insert a callback output like so (callback)=\'PaymentComplete($event)\' to check payment status';
+      return 'SeerBit: Insert a callback output like so (callback)=\'PaymentComplete($event)\' to check payment status';
     }
     return this.seerBitService.checkInput(obj);
   }
@@ -52,14 +52,14 @@ export class SeerBitComponent {
     this.pay();
   }
     async pay() {
-    let errorText = this.validateInput(this.options);
+    const errorText = this.validateInput(this.options);
     this.generateOptions(this.options);
     if (errorText) {
       console.error(errorText);
-      this.validationError.emit(errorText)
+      this.validationError.emit(errorText);
       return errorText;
     }
     await this.seerBitService.loadScript();
-    window.SeerbitPay(this._options, this.callbackFn,this.closeFn)
+    window.SeerbitPay(this._options, this.callbackFn, this.closeFn);
   }
 }

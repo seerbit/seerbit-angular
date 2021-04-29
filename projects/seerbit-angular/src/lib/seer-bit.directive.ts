@@ -5,8 +5,8 @@ interface MyWindow extends Window {
   SeerbitPay:
   {
     (options: any,
-      callback: any,
-      close: any
+     callback: any,
+     close: any
       )
   };
 }
@@ -20,25 +20,25 @@ export class SeerBitButtonDirective {
   @Output() close: EventEmitter<any> = new EventEmitter<any>();
   @Output() validationError: EventEmitter<any> = new EventEmitter<any>();
   private _options: Partial<PrivateSeerBitOptions>;
-  closeFn:any; 
-  callbackFn:any;
-  errorFn:any;
+  closeFn: any;
+  callbackFn: any;
+  errorFn: any;
   constructor(private seerBitService: SeerbitService) {
 
   }
 
   async pay() {
-    let errorText = this.validateInput(this.options);
+    const errorText = this.validateInput(this.options);
 
     this.generateOptions(this.options);
 
     if (errorText) {
       console.error(errorText);
-      this.validationError.emit(errorText)
+      this.validationError.emit(errorText);
       return errorText;
     }
     await this.seerBitService.loadScript();
-    window.SeerbitPay(this._options, this.callbackFn,this.closeFn)
+    window.SeerbitPay(this._options, this.callbackFn, this.closeFn);
   }
   generateOptions(obj: any) {
     this._options = this.seerBitService.getSeerBitOptions(obj);
@@ -46,7 +46,7 @@ export class SeerBitButtonDirective {
       if (this.close.observers.length) {
         this.close.emit(...response);
       }
-    }
+    };
     this.callbackFn = (...response) => {
       this.callback.emit(...response);
     };

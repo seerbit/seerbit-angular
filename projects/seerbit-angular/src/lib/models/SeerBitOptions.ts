@@ -32,15 +32,17 @@ export interface SeerBitOptions {
   /**
    * A valid shopper's email address
    */
-  email?: string
+  email?: string;
   /**
    * A valid shopper's phone number
    */
-  mobile_no?: string
+  mobile_no?: string;
   /**
    * A valid shopper's full name: John Smith
    */
-  full_name?:string
+  full_name?: string;
+
+  setAmountByCustomer?: boolean;
 }
 
 export interface PrivateSeerBitOptions extends SeerBitOptions {

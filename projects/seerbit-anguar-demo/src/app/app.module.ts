@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule,NgSeerBitModule
+    BrowserModule, NgSeerBitModule
   ],
   providers: [],
   bootstrap: [AppComponent]
