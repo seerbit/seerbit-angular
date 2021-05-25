@@ -14,7 +14,7 @@
 
 ## Features
 
-* The library enables easy integration with Angular.
+* The library enables easy integration of SeerBit payment with Angular 2+.
 * Integrate as a Component
 * Integrate as a Directive
 

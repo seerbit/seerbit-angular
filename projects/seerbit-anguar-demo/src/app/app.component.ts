@@ -23,7 +23,7 @@ export class AppComponent {
     full_name: 'test test',
     amount: this.cart_total_cost,
     callbackurl: '', // Replace this with URL available on the WWW
-    public_key: 'SBTESTPUBK_dhrpzbRpR34l6VmqkCFOKA94L5E1jSTu', // replace this with your own public key from your Merchant Dashboard
+    public_key: 'public_key_from_your_merchant_dashboard', // replace this with your own public key from your Merchant Dashboard
   };
 
   PaymentDone(response) {
