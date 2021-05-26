@@ -9,27 +9,40 @@ export interface SeerBitOptions {
    * A flat fee to charge the subaccount for this transaction, in kobo.
    */
   tranref: number;
-  
+  /**
+   * Merchant public key
+   */
   public_key: string;
   /**
-   * The customer's email address
+   * Transaction currency
    */
   currency: string;
   /**
-   * Unique case sensitive transaction reference. Only -,., = and alphanumeric characters allowed.
+   * Callback URL which will be redirected to after a successful transaction
    */
   callbackurl?: string;
   /**
-   * Unique case sensitive transaction reference. Only -,., = and alphanumeric characters allowed.
+   * Shopper's country
    */
   country?: string;
   /**
-   * Unique case sensitive transaction reference. Only -,., = and alphanumeric characters allowed.
+   * Transaction description
    */
   description?: string;
   /**
-   * Unique case sensitive transaction reference. Only -,., = and alphanumeric characters allowed.
+   * A valid shopper's email address
    */
+  email?: string;
+  /**
+   * A valid shopper's phone number
+   */
+  mobile_no?: string;
+  /**
+   * A valid shopper's full name: John Smith
+   */
+  full_name?: string;
+
+  setAmountByCustomer?: boolean;
 }
 
 export interface PrivateSeerBitOptions extends SeerBitOptions {

@@ -26,21 +26,23 @@ export class SeerbitService {
         resolve();
       };
       script.addEventListener('load', onLoadFunc);
-      script.setAttribute('src', 'https://checkout.seerbitapi.com/api/v1/seerbit.js');
+      script.setAttribute('src', 'https://checkout.seerbitapi.com/api/v2/seerbit.js');
     });
   }
   getSeerBitOptions(obj: SeerBitOptions): SeerBitOptions {
-    //const seerBitOptions: any = {};
-    const seerBitOptions: SeerBitOptions = {
+    return {
       amount: obj.amount,
       tranref: obj.tranref,
       public_key: obj.public_key,
       currency: obj.currency || 'NGN',
       callbackurl: obj.callbackurl || '',
       country: obj.country,
-      description: obj.description
+      description: obj.description,
+      email: obj.email || '',
+      mobile_no: obj.mobile_no || '',
+      full_name: obj.full_name || '',
+      setAmountByCustomer: obj.setAmountByCustomer || false
     };
-    return seerBitOptions;
   }
   checkInput(obj: Partial<SeerBitOptions>): string {
     if (!obj.public_key) {

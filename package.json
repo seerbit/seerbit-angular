@@ -1,14 +1,15 @@
 {
-  "name": "my-workspace",
-  "version": "1.0.3",
+  "name": "seerbit-angular",
+  "version": "2.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
+    "lint-fix": "ng lint --fix",
     "e2e": "ng e2e",
-    "build:seerbit": "ng build seerbit-angular"
+    "build:seerbit": "ng build seerbit-angular --watch"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,6 @@
   "homepage": "https://seerbit.com",
   "private": false,
   "dependencies": {
-    "@angular/animations": "~8.2.4",
     "@angular/common": "~8.2.4",
     "@angular/compiler": "~8.2.4",
     "@angular/core": "~8.2.4",
