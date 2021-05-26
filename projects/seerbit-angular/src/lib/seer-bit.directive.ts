@@ -53,7 +53,7 @@ export class SeerBitButtonDirective {
   }
   validateInput(obj: SeerBitOptions) {
     if (!this.callback.observers.length) {
-      return 'Seerbit: Insert a callback function like so (callback)=\'PaymentComplete($event)\' to check payment status';
+      return 'SeerBit: Insert a callback function like so (callback)=\'PaymentComplete($event)\' to check payment status';
     }
     return this.seerBitService.checkInput(obj);
   }
