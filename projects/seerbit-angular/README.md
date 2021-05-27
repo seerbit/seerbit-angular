@@ -9,12 +9,12 @@
 </h1>
 
 <h4 align="center">
-  An Angular 8 wrapper for SeerBit inline script
+  An Angular 8 wrapper for SeerBit script
 </h4>
 
 ## Features
 
-* The library enables easy integration of SeerBit payment with Angular 2+.
+* The library enables easy integration with Angular.
 * Integrate as a Component
 * Integrate as a Directive
 
@@ -69,7 +69,6 @@ export class AppModule { }
 ## Implementation in your Application
 ```typescript
 import { Component } from '@angular/core';
-import {PRODUCTS} from './mock.products';
 
 @Component({
   selector: 'app-root',
@@ -83,17 +82,20 @@ export class AppComponent {
     console.log(response) /*event handler with a response after a transaction*/
   }
   PaymentCancel(response) {/*event handler when shopper closes payment modal*/
-    
+    console.log(response)
   }
 
   options = {
-    "tranref": new Date().getTime(),
-    "currency": "NGN",
-    "description": "Shopper purchased an item",
-    "country": "NG",
-    "amount": 2000,
-    "callbackurl": "localhost:4200",//Replace this with your URL available on the WWW
-    "public_key": "PUBLIC_KEY", //replace this with your own public key from your Merchant Dashboard
+       tranref: new Date().getTime(),
+       currency: 'NGN',
+       description: 'TEST PAYMENT',
+       country: 'NG',
+       email: 'samsmart@emaildomain.com',
+       mobile_no: '08011111111',
+       full_name: 'Sam Smart',
+       amount: 2000,
+       callbackurl: '', // Replace this with URL available on the WWW
+       public_key: 'public_key_from_your_merchant_dashboard', // replace this with your own public key from your Merchant Dashboard
   };
 }
 ```
@@ -138,57 +140,66 @@ export class AppComponent {
   cart = [...PRODUCTS];
   cart_total = 0;
   cart_total_cost = 0;
-  available_quantities = [1,2,3]
+  available_quantities = [1, 2, 3];
+
+  options = {
+    tranref: new Date().getTime(),
+    currency: 'NGN',
+    description: 'TEST',
+    country: 'NG',
+    email: 'test@emaildomain.com',
+    mobile_no: '08011111111',
+    full_name: 'test test',
+    amount: this.cart_total_cost,
+    callbackurl: '', // Replace this with URL available on the WWW
+    public_key: 'public_key_from_your_merchant_dashboard', // replace this with your own public key from your Merchant Dashboard
+  };
 
   PaymentDone(response) {
-    console.log(response) /*response of transaction*/
+    console.log('callback');
+    console.log(response); /*response of transaction*/
   }
   PaymentCancel(response) {
-    
+    console.log('cancel');
+    console.log(response);
   }
 
-  cartTotalCost = ()=>{
+  PaymentPayloadValidationError(error) {
+    console.log('payload validation error');
+    console.log(error);
+  }
+
+  cartTotalCost = () => {
     let total = 0;
-    this.cart.map(item=>{
-      total += item.price * item.qty
+    this.cart.map(item => {
+      total += item.price * item.qty;
     });
     this.cart_total_cost = total;
     this.options.amount = total;
 
   }
 
-  cartTotal = ()=>{
+  cartTotal = () => {
     let total = 0;
-     this.cart.map( item=> { total = total+Math.floor(item.qty);  });
-     this.cartTotalCost()
-     return total;
+    this.cart.map( item => { total = total + Math.floor(item.qty);  });
+    this.cartTotalCost();
+    return total;
   }
 
-  removeItem(product){
-    this.cart = this.cart.filter( item=> {return item.id != product.id})
+  removeItem(product) {
+    this.cart = this.cart.filter( item => item.id != product.id);
   }
 
-  updateCart(product, qty:number){
-    this.cart.map( item=> {
+  updateCart(product, qty: number) {
+    this.cart.map( item => {
       item.id == product.id ? item.qty = Math.floor(qty) : null;
       return item;
     }
     );
-    this.cartTotalCost()
-   
+    this.cartTotalCost();
+
   }
-
-  options = {
-    "tranref": new Date().getTime(),
-    "currency": "NGN",
-    "description": "TEST",
-    "country": "NG",
-    "amount": this.cart_total_cost,
-    "callbackurl": "localhost:4200",//Replace this with URL available on the WWW
-    "public_key": "SBPUBK_CECPLUSINMDQIHH3GYV2NNYHGPV9JEKQ", //replace this with your own public key from your Merchant Dashboard
-  };
 }
-
 ```
 
 <strong>Product mock data and product type</strong>
