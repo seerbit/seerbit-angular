@@ -96,6 +96,16 @@ export class AppComponent {
        amount: 2000,
        callbackurl: '', // Replace this with URL available on the WWW
        public_key: 'public_key_from_your_merchant_dashboard', // replace this with your own public key from your Merchant Dashboard
+       customization: {
+                theme: {
+                  border_color: "#000000",
+                  background_color: "#004C64",
+                  button_color: "#0084A0",
+                },
+                payment_method: ["card", "account", "transfer", "wallet", 'ussd'],
+                display_fee: true, // false
+                logo: "logo_url || base64", 
+              }
   };
 }
 ```
