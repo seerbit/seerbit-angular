@@ -1,5 +1,25 @@
 import { EventEmitter } from '@angular/core';
 
+interface SeerBitOptionsCustomisationTheme {
+  border_color?: string;
+  background_color?: string;
+  button_color?: string;
+}
+
+interface SeerBitOptionsCustomisation {
+  /**
+   * UI Customisation properties.
+   */
+  theme?: object;
+  /**
+   * Array of allowed Payment methods  e.g ["card", "account", "transfer", "wallet", "ussd"].
+   */
+  payment_method?: string[];
+  /**
+   * Merchant Logo. Can be a URL or base64.
+   */
+  logo?: string;
+}
 export interface SeerBitOptions {
   /**
    * Amount to withdraw (in kobo for NGN)
@@ -41,8 +61,14 @@ export interface SeerBitOptions {
    * A valid shopper's full name: John Smith
    */
   full_name?: string;
-
+  /**
+   * Allow the customer/shopper input an amount
+   */
   setAmountByCustomer?: boolean;
+  /**
+   * Customise the look and feel of your checkout
+   */
+  customization?: SeerBitOptionsCustomisation;
 }
 
 export interface PrivateSeerBitOptions extends SeerBitOptions {
