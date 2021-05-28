@@ -1,3 +1,4 @@
+```html
 <div align="center">
  <img width="200" valign="top" src="https://res.cloudinary.com/dy2dagugp/image/upload/v1571249658/seerbit-logo_mdinom.png">
 </div>
@@ -11,6 +12,7 @@
 <h4 align="center">
   An Angular 8 wrapper for SeerBit inline script
 </h4>
+```
 
 ## Features
 
@@ -45,7 +47,7 @@ npm install --save seerbit-angular
 
 Import the `NgSeerBitModule` into your application (most likely your checkout module)
 
-```typescript
+```ts
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgSeerBitModule} from 'seerbit-angular';
@@ -67,7 +69,7 @@ export class AppModule { }
 
 
 ## Implementation in your Application
-```typescript
+```ts
 import { Component } from '@angular/core';
 
 @Component({
@@ -114,7 +116,7 @@ export class AppComponent {
 
 ## As a Component 
 
-```ts
+```html
 <seerbit-ng class="your-custom-class" (callback)="PaymentDone($event)" (close)="PaymentCancel($event)" [options]="options">
 Trigger Payment Modal as a Component
 </seerbit-ng>
@@ -123,7 +125,7 @@ A caveat for implementing as a component requires your styling to available glob
 
 ## As a Directive
 
-```ts
+```html
 <button class="your-custom-class" seerbit-ng (callback)="PaymentDone($event)" (close)="PaymentCancel($event)" [options]="options">
 Trigger Payment Modal as a Component
 </button>
@@ -134,7 +136,9 @@ You can also check the [projects/seerbit-anguar-demo folder](https://github.com/
 
 ## A Shopping cart example
 
+```html
 <strong>App Component</strong>
+```
 
 ```ts
 import { Component } from '@angular/core';
@@ -154,15 +158,24 @@ export class AppComponent {
 
   options = {
     tranref: new Date().getTime(),
-    currency: 'NGN',
-    description: 'TEST',
-    country: 'NG',
-    email: 'test@emaildomain.com',
-    mobile_no: '08011111111',
-    full_name: 'test test',
+    currency: "NGN",
+    description: "TEST",
+    country: "NG",
+    email: "test@emaildomain.com",
+    mobile_no: "08011111111",
+    full_name: "test test",
     amount: this.cart_total_cost,
-    callbackurl: '', // Replace this with URL available on the WWW
-    public_key: 'public_key_from_your_merchant_dashboard', // replace this with your own public key from your Merchant Dashboard
+    callbackurl: "", // Replace this with URL available on the WWW
+    public_key: "public_key_from_your_merchant_dashboard", // replace this with your own public key from your Merchant Dashboard
+    customization: {
+      theme: {
+        border_color: "#4c4c4c",
+        background_color: "#61bc6e",
+        button_color: "#0000000",
+      },
+      // payment_method: ["card", "account", "transfer", "wallet", 'ussd'],
+      // logo: "logo_url || base64",
+    }
   };
 
   PaymentDone(response) {
@@ -212,17 +225,11 @@ export class AppComponent {
 }
 ```
 
+```html
 <strong>Product mock data and product type</strong>
+```
 
 ```ts
-import { Product } from './product';
-
-export const PRODUCTS: Product[] = [
-  { id: 11, name: 'Product 1', price:4000, description:'A description of product 1',qty:1 },
-  { id: 12, name: 'Product 2', price:8000, description:'A description of product 2',qty:1 },
-];
-
-
 export class Product {
     id: number;
     name: string;
@@ -233,9 +240,18 @@ export class Product {
 
 ```
 
-<strong>Component Template</strong>
+```ts
+import { Product } from './product';
+
+export const PRODUCTS: Product[] = [
+  { id: 11, name: 'Product 1', price:4000, description:'A description of product 1',qty:1 },
+  { id: 12, name: 'Product 2', price:8000, description:'A description of product 2',qty:1 },
+];
+```
+
 
 ```html
+<strong>Component Template</strong>
 <div class="center-wrapper">
 	<div class="content">
 	<nav>
@@ -300,7 +316,11 @@ export class Product {
 </div>
 ```
 
+
+```html
 <strong>Component Template CSS</strong>
+```
+
 ```css
 * {
     margin: 0;
