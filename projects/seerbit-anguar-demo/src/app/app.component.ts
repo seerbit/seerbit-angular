@@ -15,15 +15,25 @@ export class AppComponent {
 
   options = {
     tranref: new Date().getTime(),
-    currency: 'NGN',
-    description: 'TEST',
-    country: 'NG',
-    email: 'test@emaildomain.com',
-    mobile_no: '08011111111',
-    full_name: 'test test',
+    currency: "NGN",
+    description: "TEST",
+    country: "NG",
+    email: "test@emaildomain.com",
+    mobile_no: "08011111111",
+    full_name: "test test",
     amount: this.cart_total_cost,
-    callbackurl: '', // Replace this with URL available on the WWW
-    public_key: 'public_key_from_your_merchant_dashboard', // replace this with your own public key from your Merchant Dashboard
+    callbackurl: "", // Replace this with URL available on the WWW
+    public_key: "SBTESTPUBK_XeKUDcFUGw1kmEfanjgp0iLviCseMX2N", // replace this with your own public key from your Merchant Dashboard
+    customization: {
+      theme: {
+        border_color: "#4c4c4c",
+        background_color: "#61bc6e",
+        button_color: "#0000000",
+      },
+      // payment_method: ["card", "account", "transfer", "wallet", 'ussd'],
+      // display_fee: true, // false
+      // logo: "logo_url || base64",
+    }
   };
 
   PaymentDone(response) {

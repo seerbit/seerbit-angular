@@ -41,18 +41,19 @@ export class SeerbitService {
       email: obj.email || '',
       mobile_no: obj.mobile_no || '',
       full_name: obj.full_name || '',
-      setAmountByCustomer: obj.setAmountByCustomer || false
+      setAmountByCustomer: obj.setAmountByCustomer || false,
+      customization: obj.customization || null
     };
   }
   checkInput(obj: Partial<SeerBitOptions>): string {
     if (!obj.public_key) {
-      return 'Seerbit: Please insert a your public key';
+      return 'SeerBit: Please insert a your public key';
     }
     if (!obj.amount) {
-      return 'Seerbit: Transaction amount cannot be empty';
+      return 'SeerBit: Transaction amount cannot be empty';
     }
     if (!obj.tranref) {
-      return 'Seerbit: Transaction ref cannot be empty';
+      return 'SeerBit: Transaction ref cannot be empty';
     }
     return '';
   }
