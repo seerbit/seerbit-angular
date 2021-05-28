@@ -9,7 +9,7 @@
 </h1>
 
 <h4 align="center">
-  An Angular 8 wrapper for SeerBit script
+  An Angular 8 wrapper for SeerBit inline script
 </h4>
 
 ## Features
