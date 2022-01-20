@@ -8,6 +8,7 @@ interface MyWindow extends Window {
     (options: any, callback: any, close: any)
   };
 }
+
 declare var window: MyWindow;
 @Component({
   selector: 'seerbit-ng',
@@ -17,7 +18,7 @@ export class SeerBitComponent {
   @Input() class: string;
   @Input() style: object;
   @Input() options: any;
-  @Output() callback: EventEmitter<any> = new EventEmitter<any>();
+  @Output() callback: EventEmitter<{response: any, closeModal: any}> = new EventEmitter<{response: any, closeModal: any}>();
   @Output() close: EventEmitter<any> = new EventEmitter<any>();
   @Output() validationError: EventEmitter<any> = new EventEmitter<any>();
   private _options: Partial<PrivateSeerBitOptions>;
@@ -35,8 +36,8 @@ export class SeerBitComponent {
         this.close.emit(...response);
       }
     };
-    this.callbackFn = (...response) => {
-      this.callback.emit(...response);
+    this.callbackFn = (response, closeModal) => {
+      this.callback.emit({response, closeModal});
     };
   }
   validateInput(obj: SeerBitOptions) {
@@ -55,7 +56,6 @@ export class SeerBitComponent {
     const errorText = this.validateInput(this.options);
     this.generateOptions(this.options);
     if (errorText) {
-      console.error(errorText);
       this.validationError.emit(errorText);
       return errorText;
     }

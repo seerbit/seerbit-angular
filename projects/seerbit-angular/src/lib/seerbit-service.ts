@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { SeerBitOptions } from './models/SeerBitOptions';
 
 interface MyWindow extends Window {
-  SeerBitPop: { setup(options: Partial<SeerBitOptions>): { openIframe(): any } };
+  SeerbitPay: { pay(options: Partial<SeerBitOptions>): { openIframe(): any } };
 }
 
 declare var window: MyWindow;
@@ -13,9 +13,9 @@ declare var window: MyWindow;
 export class SeerbitService {
   constructor() { }
 
-  loadScript(): Promise<void> {
+  loadScript(): Promise<any> {
     return new Promise(resolve => {
-      if (window.SeerBitPop && typeof window.SeerBitPop.setup === 'function') {
+      if (window.SeerbitPay && typeof window.SeerbitPay.pay === 'function') {
         resolve();
         return;
       }
@@ -42,6 +42,8 @@ export class SeerbitService {
       mobile_no: obj.mobile_no || '',
       full_name: obj.full_name || '',
       setAmountByCustomer: obj.setAmountByCustomer || false,
+      close_prompt: obj.close_prompt || false,
+      close_on_success: obj.close_on_success || false,
       customization: obj.customization || null
     };
   }

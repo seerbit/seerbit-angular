@@ -10,7 +10,7 @@ interface SeerBitOptionsCustomisation {
   /**
    * UI Customisation properties.
    */
-  theme?: object;
+  theme?: SeerBitOptionsCustomisationTheme;
   /**
    * Array of allowed Payment methods  e.g ["card", "account", "transfer", "wallet", "ussd"].
    */
@@ -19,12 +19,16 @@ interface SeerBitOptionsCustomisation {
    * Merchant Logo. Can be a URL or base64.
    */
   logo?: string;
+  /**
+   * Display Confetti after a successful transaction.
+   */
+  confetti?: boolean;
 }
 export interface SeerBitOptions {
   /**
    * Amount to withdraw (in kobo for NGN)
    */
-  amount: string;
+  amount: string | number;
   /**
    * A flat fee to charge the subaccount for this transaction, in kobo.
    */
@@ -65,6 +69,16 @@ export interface SeerBitOptions {
    * Allow the customer/shopper input an amount
    */
   setAmountByCustomer?: boolean;
+  /**
+   */
+  /**
+   * Disable the prompt when the cancel button is closed
+   */
+  close_prompt?: boolean;
+  /**
+   * Immediately close the checkout after a successful transaction
+   */
+  close_on_success?: boolean;
   /**
    * Customise the look and feel of your checkout
    */

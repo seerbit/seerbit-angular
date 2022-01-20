@@ -21,9 +21,11 @@ export class AppComponent {
     email: 'test@emaildomain.com',
     mobile_no: '08011111111',
     full_name: 'test test',
+    close_prompt: true,
+    close_on_success: false,
     amount: this.cart_total_cost,
     callbackurl: '', // Replace this with URL available on the WWW
-    public_key: 'public_key_from_your_merchant_dashboard', // replace this with your own public key from your Merchant Dashboard
+    public_key: 'SBTESTPUBK_xhMCQSJ55DWQh6xDI6bft9SqXbEKbNHL', // replace this with your own public key from your Merchant Dashboard
     customization: {
       theme: {
         border_color: '#4c4c4c',
@@ -32,12 +34,14 @@ export class AppComponent {
       },
       // payment_method: ["card", "account", "transfer", "wallet", 'ussd'],
       // logo: "logo_url || base64",
+      // confetti: true
     }
   };
 
-  PaymentDone(response) {
-    console.log('callback');
-    console.log(response); /*response of transaction*/
+  PaymentDone(res) {
+    const {response, closeModal} = res;
+    console.log('response', response);
+    // closeModal();
   }
   PaymentCancel(response) {
     console.log('cancel');

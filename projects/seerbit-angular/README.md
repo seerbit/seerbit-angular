@@ -1,18 +1,18 @@
-```html
-<div align="center">
- <img width="200" valign="top" src="https://res.cloudinary.com/dy2dagugp/image/upload/v1571249658/seerbit-logo_mdinom.png">
-</div>
+
+<p align="center">
+<img width="500" valign="top" src="https://res.cloudinary.com/dpejkbof5/image/upload/v1620323718/Seerbit_logo_png_ddcor4.png" data-canonical-src="https://res.cloudinary.com/dpejkbof5/image/upload/v1620323718/Seerbit_logo_png_ddcor4.png" style="max-width:100%; ">
+</p>
 
 
 <h1 align="center">
   <img width="40" valign="bottom" src="https://angular.io/assets/images/logos/angular/angular.svg">
-  angular-seerbit
+  seerbit-angular
 </h1>
 
 <h4 align="center">
-  An Angular 8 wrapper for SeerBit inline script
+  An Angular 12 Library for SeerBit payment gateway
 </h4>
-```
+
 
 ## Features
 
@@ -22,7 +22,8 @@
 
 ## Getting started
 
-A full getting started guide for integrating SeerBit can be found at [getting started docs](https://doc.seerbit.com).
+* A full getting started guide for integrating SeerBit can be found at [getting started docs](https://doc.seerbit.com)
+* Register for a merchant account on [Seerbit Merchant Dashboard](https://dashboard.seerbitapi.com) to get access to integration keys.
 
 ## Documentation
 
@@ -31,7 +32,7 @@ The documentation, installation guide, detailed description of the SeerBit API a
 
 ## Requirements
 
-* Angular 2 and higher
+* Angular 12 and higher
 
 
 ## Installation
@@ -80,8 +81,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'seerbit-anguar-demo';
   
-  PaymentDone(response) {
-    console.log(response) /*event handler with a response after a transaction*/
+  PaymentDone(res) {/*event handler with a response after a complete transaction*/
+    const {response, closeModal} = res;
+    console.log('response', response)
+    closeModal();
   }
   PaymentCancel(response) {/*event handler when shopper closes payment modal*/
     console.log(response)
@@ -96,6 +99,9 @@ export class AppComponent {
        mobile_no: '08011111111',
        full_name: 'Sam Smart',
        amount: 2000,
+       setAmountByCustomer: false, 
+       close_prompt: false,
+       close_on_success: false,
        callbackurl: '', // Replace this with URL available on the WWW
        public_key: 'public_key_from_your_merchant_dashboard', // replace this with your own public key from your Merchant Dashboard
        customization: {
@@ -165,6 +171,9 @@ export class AppComponent {
     mobile_no: "08011111111",
     full_name: "test test",
     amount: this.cart_total_cost,
+    setAmountByCustomer: false,
+    close_prompt: false,
+    close_on_success: false,
     callbackurl: "", // Replace this with URL available on the WWW
     public_key: "public_key_from_your_merchant_dashboard", // replace this with your own public key from your Merchant Dashboard
     customization: {
