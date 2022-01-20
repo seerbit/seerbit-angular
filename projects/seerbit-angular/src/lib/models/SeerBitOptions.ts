@@ -32,7 +32,7 @@ export interface SeerBitOptions {
   /**
    * A flat fee to charge the subaccount for this transaction, in kobo.
    */
-  tranref: number;
+  tranref: number | string;
   /**
    * Merchant public key
    */
