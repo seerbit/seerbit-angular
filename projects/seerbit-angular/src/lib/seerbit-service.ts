@@ -13,7 +13,7 @@ declare var window: MyWindow;
 export class SeerbitService {
   constructor() { }
 
-  loadScript(): Promise<any> {
+  loadScript(): Promise<void> {
     return new Promise(resolve => {
       if (window.SeerbitPay && typeof window.SeerbitPay.pay === 'function') {
         resolve();
