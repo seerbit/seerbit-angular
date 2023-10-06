@@ -156,5 +156,8 @@
         }
       }
     }},
-  "defaultProject": "seerbit-angular-demo"
+  "defaultProject": "seerbit-angular-demo",
+  "cli": {
+    "analytics": "93b31e70-f732-408c-b2c9-09c7d53585f3"
+  }
 }
