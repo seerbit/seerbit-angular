@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { SeerBitButtonDirective } from './seer-bit.directive';
-import { SeerBitComponent } from './seer-bit.component';
+import SeerBitButtonDirective from './seer-bit.directive';
+import SeerBitComponent from './seer-bit.component';
 import { CommonModule } from '@angular/common';
 
 

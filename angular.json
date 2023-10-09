@@ -53,7 +53,7 @@
             "main": "projects/seerbit-anguar-demo/src/main.ts",
             "polyfills": "projects/seerbit-anguar-demo/src/polyfills.ts",
             "tsConfig": "projects/seerbit-anguar-demo/tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "projects/seerbit-anguar-demo/src/favicon.ico",
               "projects/seerbit-anguar-demo/src/assets"
@@ -74,7 +74,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -153,8 +152,34 @@
               "devServerTarget": "seerbit-anguar-demo:serve:production"
             }
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/seerbit-anguar-demo/server",
+            "main": "projects/seerbit-anguar-demo/server.ts",
+            "tsConfig": "projects/seerbit-anguar-demo/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "projects/seerbit-anguar-demo/src/environments/environment.ts",
+                  "with": "projects/seerbit-anguar-demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "sourceMap": false,
+              "extractLicenses": true,
+              "buildOptimizer": true
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }},
-  "defaultProject": "seerbit-angular-demo"
+  "cli": {
+    "analytics": "93b31e70-f732-408c-b2c9-09c7d53585f3"
+  }
 }

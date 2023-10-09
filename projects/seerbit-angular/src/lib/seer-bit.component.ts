@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, Input, EventEmitter, HostListener } from '@angular/core';
+import { Component, Output, Input, EventEmitter, HostListener } from '@angular/core';
 import { PrivateSeerBitOptions, SeerBitOptions } from './models/SeerBitOptions';
 import { SeerbitService } from './seerbit-service';
 
@@ -14,18 +14,19 @@ declare var window: MyWindow;
   selector: 'seerbit-ng',
   template: `<button [ngClass]="class" [ngStyle]="style"><ng-content></ng-content></button>`
 })
-export class SeerBitComponent {
+export default class SeerBitComponent {
   @Input() class: string;
   @Input() style: object;
-  @Input() options: any;
+  @Input() options: SeerBitOptions;
   @Output() callback: EventEmitter<{response: any, closeModal: any}> = new EventEmitter<{response: any, closeModal: any}>();
   @Output() close: EventEmitter<any> = new EventEmitter<any>();
   @Output() validationError: EventEmitter<any> = new EventEmitter<any>();
-  private _options: Partial<PrivateSeerBitOptions>;
+  // tslint:disable-next-line:variable-name
+  public _options: Partial<PrivateSeerBitOptions>;
   closeFn: any;
   callbackFn: any;
 
-  constructor(private seerBitService: SeerbitService) {
+  constructor(public seerBitService: SeerbitService) {
 
   }
 
