@@ -14,8 +14,8 @@ declare var window: MyWindow;
 @Directive({
   selector: '[seerbit-ng]'
 })
-export class SeerBitButtonDirective {
-  @Input() options: any;
+export default class SeerBitButtonDirective {
+  @Input() options: SeerBitOptions;
   @Output() callback: EventEmitter<{response: any, closeModal: any}> = new EventEmitter<{response: any, closeModal: any}>();
   @Output() close: EventEmitter<any> = new EventEmitter<any>();
   @Output() validationError: EventEmitter<any> = new EventEmitter<any>();

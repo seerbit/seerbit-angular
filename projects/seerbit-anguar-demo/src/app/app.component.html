@@ -49,15 +49,15 @@
 		</div>
 		<button class="btn-go-checkout" seerbit-ng (callback)="PaymentDone($event)" (close)="PaymentCancel($event)"
 	[options]="options"
-	(error)="PaymentPayloadValidationError($event)" 
+	(error)="PaymentPayloadValidationError($event)"
 	>
 			<i class="fas fa-lock"></i>
-			<span>Go to Checkout</span>
+			<span>Checkout</span>
 		</button>
 		<seerbit-ng class="btn-go-checkout" (callback)="PaymentDone($event)" (validationError)="PaymentCancel($event)" [options]="options">
-			Seer Button as component
+			Checkout
 		  </seerbit-ng>
-	
+
 	</div>
 
 </div>

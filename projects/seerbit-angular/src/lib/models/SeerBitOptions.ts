@@ -83,6 +83,15 @@ export interface SeerBitOptions {
    * Customise the look and feel of your checkout
    */
   customization?: SeerBitOptionsCustomisation;
+   /**
+   * card token capture
+   */
+  tokenize?: boolean;
+    /**
+   * subcription plan id
+   */
+  planId?: string;
+
 }
 
 export interface PrivateSeerBitOptions extends SeerBitOptions {

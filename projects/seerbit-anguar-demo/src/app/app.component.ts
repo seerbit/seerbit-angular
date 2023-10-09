@@ -35,7 +35,9 @@ export class AppComponent {
       // payment_method: ["card", "account", "transfer", "wallet", 'ussd'],
       // logo: "logo_url || base64",
       // confetti: true
-    }
+    },
+    tokenize: false,
+    planId: ""
   };
 
   PaymentDone(res) {

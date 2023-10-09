@@ -113,7 +113,9 @@ export class AppComponent {
                 payment_method: ["card", "account", "transfer", "wallet", 'ussd'],
                 display_fee: true, // false
                 logo: "logo_url || base64", 
-              }
+              },
+       tokenize: false,
+       planId: ""
   };
 }
 ```
@@ -184,7 +186,9 @@ export class AppComponent {
       },
       // payment_method: ["card", "account", "transfer", "wallet", 'ussd'],
       // logo: "logo_url || base64",
-    }
+    },
+    tokenize: false,
+    planId: ""
   };
 
   PaymentDone(response) {
