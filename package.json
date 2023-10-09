@@ -1,10 +1,10 @@
 {
   "name": "seerbit-angular",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build seerbit-angular",
     "test": "ng test",
     "lint": "ng lint",
     "lint-fix": "ng lint --fix",

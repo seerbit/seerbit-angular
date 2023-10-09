@@ -10,7 +10,7 @@
 </h1>
 
 <h4 align="center">
-  An Angular 12 Library for SeerBit payment gateway
+  An Angular 16 Library for SeerBit payment gateway
 </h4>
 
 
