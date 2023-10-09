@@ -44,7 +44,9 @@ export class SeerbitService {
       setAmountByCustomer: obj.setAmountByCustomer || false,
       close_prompt: obj.close_prompt || false,
       close_on_success: obj.close_on_success || false,
-      customization: obj.customization || null
+      customization: obj.customization || null,
+      tokenize: obj.tokenize || false,
+      planId: obj.planId || ''
     };
   }
   checkInput(obj: Partial<SeerBitOptions>): string {
