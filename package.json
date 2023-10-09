@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build seerbit-angular",
+    "build": "npm install && ng build seerbit-angular",
     "test": "ng test",
     "lint": "ng lint",
     "lint-fix": "ng lint --fix",
