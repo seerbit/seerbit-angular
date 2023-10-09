@@ -17,6 +17,6 @@ jobs:
           node-version: 16
           registry-url: 'https://registry.npmjs.org'
       - name: Publish package on NPM 📦
-        run: npm run build && npm publish /home/runner/work/seerbit-angular/seerbit-angular/dist/seerbit-angular
+        run: npm run build && npm publish /home/runner/work/seerbit-angular/seerbit-angular/dist/seerbit-angular --ignore-scripts
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
