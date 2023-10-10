@@ -32,7 +32,7 @@ The documentation, installation guide, detailed description of the SeerBit API a
 
 ## Requirements
 
-* Angular 12 and higher
+* Angular 16 and higher
 
 
 ## Installation
