@@ -10,7 +10,7 @@
 </h1>
 
 <h4 align="center">
-  An Angular 12 Library for SeerBit payment gateway
+  An Angular 16 Library for SeerBit payment gateway
 </h4>
 
 
@@ -32,7 +32,7 @@ The documentation, installation guide, detailed description of the SeerBit API a
 
 ## Requirements
 
-* Angular 12 and higher
+* Angular 16 and higher
 
 
 ## Installation
@@ -113,7 +113,9 @@ export class AppComponent {
                 payment_method: ["card", "account", "transfer", "wallet", 'ussd'],
                 display_fee: true, // false
                 logo: "logo_url || base64", 
-              }
+              },
+      tokenize: false,
+      planId: ""
   };
 }
 ```
@@ -184,7 +186,9 @@ export class AppComponent {
       },
       // payment_method: ["card", "account", "transfer", "wallet", 'ussd'],
       // logo: "logo_url || base64",
-    }
+    },
+    tokenize: false,
+    planId: ""
   };
 
   PaymentDone(response) {
